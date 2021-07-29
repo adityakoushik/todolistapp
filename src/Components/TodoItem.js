@@ -1,12 +1,12 @@
 import React from 'react'
 
 // Below code is called destructure - {todo}
-export const TodoItem = ({todo}) => {
+export const TodoItem = ({todo, onDelete}) => {
     return (
         <div>
             <h4>{todo.title}</h4>
             <p>{todo.desc}</p>
-            <button type="button" class="btn btn-sm btn peach-gradient waves-effect">Delete</button>
+            <button type="button" className="btn btn-sm btn peach-gradient waves-effect" onClick={onDelete}>Delete</button>
         </div>
     )
 }

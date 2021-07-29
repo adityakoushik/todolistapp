@@ -5,6 +5,9 @@ import { Footer } from './Components/Footer';
 import { Todos } from './Components/Todos';
 
 function App() {
+  const onDelete = () => {
+    console.log("Deleted");
+  }
   let todos = [
     {
       sno: 1,
@@ -25,7 +28,7 @@ function App() {
   return (
     <>
       <Header title="Codekree Solution" searchBar={false}/>
-      <Todos todos={todos} />
+      <Todos todos={todos} onDelete={onDelete} />
       <Footer />
     </>
   );
