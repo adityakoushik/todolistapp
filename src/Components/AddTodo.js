@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 
 export const AddTodo = (props) => {
     
-    const [title, settitle] = useState("");
-    const [desc, setdesc] = useState("");
+    const [title, setTitle] = useState("");
+    const [desc, setDesc] = useState("");
 
-    const submit = () => {
-
+    const submit = (e) => {
+        e.preventDefault();
+        if(!title || !desc){
+            alert("Title or description should not blank");
+        }
+        props.addTodo(title, desc);
     }
     return (
         <div className="container my-3">
@@ -18,12 +22,12 @@ export const AddTodo = (props) => {
                     <form className="text-center" style={{color: '#757575'}} onSubmit={submit}>
                         <p>Add Todos from here</p>
                         <div className="md-form mt-3">
-                            <input type="text" value={title} id="todotitle" className="form-control" />
-                            <label for="todotitle">Todo title</label>
+                            <input type="text" value={title} id="todotitle" onChange={(e)=>{setTitle(e.target.value)}} className="form-control" />
+                            <label htmlFor="todotitle">Todo title</label>
                         </div>
                         <div className="md-form mt-3">
-                            <input type="text" value={desc} id="desc" className="form-control" />
-                            <label for="desc">Todo Description</label>
+                            <input type="text" value={desc} id="desc" onChange={(e)=>{setDesc(e.target.value)}} className="form-control" />
+                            <label htmlFor="desc">Todo Description</label>
                         </div>
                         <button className="btn btn-outline-info btn-rounded z-depth-0 my-4 waves-effect" type="submit">Add Todo</button>
             
