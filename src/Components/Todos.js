@@ -4,29 +4,21 @@ import { TodoItem } from "./TodoItem";
 export const Todos = (props) => {
   let todosContainerStyle = {
     minHeight: "70vh",
+    margin: "50px auto"
   };
   return (
-    <div className="container mb-3" style={todosContainerStyle}>
+    <div className="container" style={todosContainerStyle}>
       <h3 className="text-center my-3">Todos List</h3>
       {/* Below code is a if condition with for loop */}
       {props.todos.length === 0
         ? "No todos to display"
         : props.todos.map((todo) => {
             return (
-              <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete} />
+                <>
+                <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete} /> <hr />
+                </>
             );
           })}
-      {/* <ul className="list-group">
-                {props.todos.map((todo) => {
-                    return( 
-                        <>
-                            <li className="list-group-item list-group-item-success">
-                                <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete} />
-                            </li>
-                        </>
-                    )
-                })}
-            </ul> */}
     </div>
   );
 };
